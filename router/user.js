@@ -1,6 +1,10 @@
 var express = require('express');
 var router = require('express').Router();
 var userService = require('../services/userService')
+
+
+
+//in ra toan bo nguoi dung
 router.get("/", function(req, res) {
     userService.getAllUser().then(function(data) {
         res.json(data)
@@ -10,6 +14,8 @@ router.get("/", function(req, res) {
 })
 
 
+
+//tao nguoi dung
 router.post("/signup", function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
@@ -30,6 +36,9 @@ router.post("/signup", function(req, res) {
     })
 })
 
+
+
+//in ra nguoi dung co ten nhu yeu cau
 router.get("/:username", (req, res) => {
     var username = req.params.username
     userService.getUser(username)
@@ -45,6 +54,9 @@ router.get("/:username", (req, res) => {
         })
 })
 
+
+
+//cap nhat nguoi dung
 router.put("/:age", (req, res) => {
     let ageparams = req.params.age
     let username = req.body.username;
@@ -60,6 +72,8 @@ router.put("/:age", (req, res) => {
         })
 })
 
+
+//xoa nguoi dung
 router.delete("/:address", function(req, res) {
     var address = req.params.address
     userService.delete(address).then(function(data) {
