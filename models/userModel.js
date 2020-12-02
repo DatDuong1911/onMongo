@@ -96,7 +96,6 @@ var UserModel = mongoose.model("user", userSchema)
 //         }, {
 //             age: { $lt: 30 }
 //         }
-
 //     ]
 // }).then(function(result) {
 //     console.log(result);
@@ -108,7 +107,15 @@ var UserModel = mongoose.model("user", userSchema)
 //     console.log(result);
 // })
 
-//thanh hoac tuoi nho hon 30 
+// tuoi lon hon 20 va tang dan 
+UserModel.find({
+        $and: [{
+            age: { $gt: 20 }
+        }, { age: 1 }]
+    }).then(function(data) {
+        console.log(data);
+    })
+    //thanh hoac tuoi nho hon 30 
 
 // UserModel.find({
 //     $or: [{
@@ -135,11 +142,11 @@ var UserModel = mongoose.model("user", userSchema)
 // })
 
 // cap nhat bang findByIdAndUpdate
-// UserModel.findByIdAndUpdate({ _id: "5e54dfe448afde5434ca75b9" }, {
-//     username: "Thai Ha"
-// }).then(function(data) {
-//     console.log(data);
-// })
+UserModel.findByIdAndUpdate({ "5e54dfe448afde5434ca75b9" }, {
+    username: "Thai Ha"
+}).then(function(data) {
+    console.log(data);
+})
 
 //cap nhat bang updateOne
 
@@ -185,6 +192,6 @@ var UserModel = mongoose.model("user", userSchema)
 
 
 // tim nguoi dau tien
-UserModel.findOne({ password: 1234 }).then(function(data) {
-    console.log(data);
-})
+// UserModel.findOne({ password: 1234 }).then(function(data) {
+//     console.log(data);
+// })
