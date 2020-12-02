@@ -142,11 +142,11 @@ UserModel.find({
 // })
 
 // cap nhat bang findByIdAndUpdate
-UserModel.findByIdAndUpdate({ "5e54dfe448afde5434ca75b9" }, {
-    username: "Thai Ha"
-}).then(function(data) {
-    console.log(data);
-})
+// UserModel.findByIdAndUpdate({ "5e54dfe448afde5434ca75b9" }, {
+//     username: "Thai Ha"
+// }).then(function(data) {
+//     console.log(data);
+// })
 
 //cap nhat bang updateOne
 
@@ -195,3 +195,6 @@ UserModel.findByIdAndUpdate({ "5e54dfe448afde5434ca75b9" }, {
 // UserModel.findOne({ password: 1234 }).then(function(data) {
 //     console.log(data);
 // })
+
+
+module.exports = UserModel
