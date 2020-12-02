@@ -11,7 +11,7 @@ userService.signup = function(username, password, age, address) {
         age: age,
         address: address
     })
-}
+};
 
 userService.updateUser = function(usernameparams, username, password, age, address) {
     return UserModel.updateMany({

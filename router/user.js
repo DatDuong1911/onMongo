@@ -1,3 +1,4 @@
+var express = require('express');
 var router = require('express').Router();
 var userService = require('../services/userService')
 router.get("/", function(req, res) {
@@ -7,17 +8,7 @@ router.get("/", function(req, res) {
         res.json(err)
     })
 })
-module.exports = router
-router.get("/:username", (req, res) => {
-    let username = req.params.username
-    userServises.getUserbyusername(username)
-        .then((data) => {
-            res.json(data)
-        })
-        .catch((err) => {
-            res.json(err)
-        })
-})
+
 
 router.post("/signup", function(req, res) {
     var username = req.body.username;
@@ -37,3 +28,4 @@ router.post("/signup", function(req, res) {
         })
     })
 })
+module.exports = router
